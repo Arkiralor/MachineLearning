@@ -23,8 +23,8 @@ def main():
     print("Seting Up...")
     model, x_test, y_test = setup()
     
-
-    # print(f"Test Data Predictions: {list(model.predict(x_test))}")
+    test_predictions = list(model.predict(x_test))
+    print(f"Test Data Predictions truncated to first 10 items (Prediction, Actual): {list(zip(test_predictions, list(y_test)))[0:10]}")
 
     print("Scoring the model's predictions.")
     model_score = model.score(x_test, y_test)
