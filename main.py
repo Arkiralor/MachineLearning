@@ -1,6 +1,5 @@
 from src.data_frame import DATA_FRAME
 from src.model import Model
-# from src.model.Model import load_model
 from src.config.settings import BASE_DIR
 
 from os import path
