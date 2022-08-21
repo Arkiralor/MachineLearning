@@ -24,6 +24,8 @@ def main():
     model, x_test, y_test = setup()
     
 
+    # print(f"Test Data Predictions: {list(model.predict(x_test))}")
+
     print("Scoring the model's predictions.")
     model_score = model.score(x_test, y_test)
     print(f"Model score: {model_score}")
