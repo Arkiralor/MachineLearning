@@ -9,7 +9,7 @@ def setup():
     df = DATA_FRAME
     print(f"Created the dataFrame: \n{df}")
     model = Model(df)
-    print(f"Created the model: \n{model}")
+    print(f"Created the model: \n{model.__module__}")
     model.make_sets()
     print(f"Created the independent datasets for training and testing.")
     _, _, x_test, y_test = model.x_train, model.y_train, model.x_test, model.y_test
@@ -29,8 +29,9 @@ def main():
     print(f"Model score: {model_score}")
 
     if model_score > 0.9:
-        model.export_model(path.join(BASE_DIR, "models", "vgsale_model.joblib"))
-        print("Model exported")
+        model_path = path.join(BASE_DIR, "models", "vgsale_model.joblib")
+        model.export_model(model_path)
+        print(f"Model exported to {model_path}")
 
 
 if __name__ == "__main__":
