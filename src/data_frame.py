@@ -2,7 +2,7 @@ import pandas as pd
 
 from os import path
 
-from config.config import BASE_DIR
+from .config.settings import BASE_DIR
 
 ## Path to dataset
 dataset = path.join(BASE_DIR, "data", "vgsales_cleaned.csv")

@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import OneHotEncoder
 import joblib
 
-from data_resolvers import DataResolver
+from .data_resolvers import DataResolver
 
 class Model:
 
@@ -23,21 +23,16 @@ class Model:
         self.model = DecisionTreeClassifier()
         self.model.fit(self.x_train, self.y_train)
 
-    def predict(self, x = None):
-        if not x:
-            x = self.x_test
+    def predict(self, x = None):            
         return self.model.predict(x)
 
     def score(self, x=None, y=None):
-        if not x:
-            x = self.x_test
-        if not y:
-            y = self.y_test
-        return accuracy_score(self.y_test, self.predict())
+        return accuracy_score(self.y_test, self.predict(x))
 
     def export_model(self, filename):
         joblib.dump(self.model, filename)
 
-    def load_model(self, filename):
-        self.model = joblib.load(filename)
+    @staticmethod
+    def load_model(filename):
+        return joblib.load(filename)
 

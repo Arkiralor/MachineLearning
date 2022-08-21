@@ -1,4 +1,4 @@
-from os import path, getcwd
+from os import path
 
 BASE_DIR = path.dirname(path.dirname(path.dirname(path.abspath(__file__))))
 
